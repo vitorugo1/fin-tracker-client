@@ -1,7 +1,5 @@
+import { ActionsBar } from '@/components/ActionsBar';
+
 export default function Home() {
-  return (
-    <div>
-      <p>test</p>
-    </div>
-  );
+  return <ActionsBar />;
 }
