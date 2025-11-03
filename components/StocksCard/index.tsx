@@ -11,13 +11,25 @@ type StocksCardProps = {
   stocksTicker: string;
   currentPrice: number;
   dayChange: number;
+  currency: string;
 };
+
+function colourChange(x: number) {
+  if (x > 0) {
+    return 'text-green-500';
+  } else if (x < 0) {
+    return 'text-red-500';
+  } else {
+    return 'text-zinc-400';
+  }
+}
 
 export function StocksCard({
   stocksName,
   stocksTicker,
   currentPrice,
   dayChange,
+  currency,
 }: StocksCardProps) {
   return (
     <Card className='bg-zinc-900 border-zinc-800'>
@@ -29,8 +41,10 @@ export function StocksCard({
       </CardHeader>
       <CardContent>
         <div className='flex gap-4'>
-          <p className='text-zinc-50'>{currentPrice}</p>
-          <p className='text-green-500'>{dayChange}</p>
+          <p className='text-zinc-50'>
+            {currentPrice} {currency}
+          </p>
+          <p className={colourChange(dayChange)}>{dayChange}</p>
         </div>
       </CardContent>
     </Card>
